@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FRL Cracks</title>
+    <title>FRL Cracks - Neon Dark</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -11,13 +11,14 @@
 
     <style>
         :root {
-            --bg-color: #121212; /* Dark background */
-            --card-color: #1E1E1E; /* Slightly lighter card background */
-            --text-color: #E0E0E0; /* Light grey text */
-            --primary-color: #3498db; /* Vibrant blue accent */
-            --primary-hover: #2980b9; /* Darker blue on hover */
-            --border-color: #333333; /* Subtle border color */
-            --shadow-color: rgba(0, 0, 0, 0.3); /* Subtle shadow */
+            --bg-color: #050505; /* Even darker background */
+            --card-color: #111111; /* Darker card background */
+            --text-color: #EAEAEA; /* Slightly brighter text */
+            --primary-color: #00AFFF; /* Slightly brighter cyan-blue for neon */
+            --primary-hover: #008fcc; /* Darker blue on hover */
+            --border-color: #282828; /* Slightly visible border */
+            --shadow-color: rgba(0, 175, 255, 0.1); /* Subtle shadow related to neon */
+            --neon-glow-color: var(--primary-color);
         }
 
         * {
@@ -32,6 +33,9 @@
 
         body {
             background-color: var(--bg-color);
+            /* Subtle noise texture */
+            background-image: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+            background-size: 2px 2px; /* Size of the noise dots */
             color: var(--text-color);
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
@@ -54,17 +58,46 @@
         .typewriter-container {
             font-size: clamp(2.5rem, 8vw, 5rem); /* Responsive font size */
             font-weight: 700;
-            color: #ffffff; /* White for high contrast title */
+            color: #ffffff; /* Base text color: white */
+            /* Neon Glow Effect */
+            text-shadow:
+                0 0 5px #fff, /* Inner white glow */
+                0 0 10px var(--neon-glow-color),
+                0 0 20px var(--neon-glow-color),
+                0 0 35px var(--neon-glow-color),
+                0 0 50px var(--neon-glow-color);
+             position: relative; /* Needed for cursor alignment */
+             min-height: 1.2em; /* Prevent jumping when text is empty */
         }
 
-        .typewriter-text {
-            /* Text color is set by the container */
+        #typewriter-target .frl-blue {
+            color: var(--primary-color); /* Make FRL blue */
+            /* Inherit base text-shadow but with blue primary color */
+             text-shadow:
+                0 0 5px #fff,
+                0 0 10px var(--neon-glow-color),
+                0 0 20px var(--neon-glow-color),
+                0 0 35px var(--neon-glow-color),
+                0 0 50px var(--neon-glow-color);
         }
+
+        #typewriter-target .rest {
+             color: #ffffff; /* Ensure rest of text is white */
+             /* Apply the same neon effect */
+              text-shadow:
+                0 0 5px #fff,
+                0 0 10px var(--neon-glow-color),
+                0 0 20px var(--neon-glow-color),
+                0 0 35px var(--neon-glow-color),
+                0 0 50px var(--neon-glow-color);
+        }
+
 
         /* Blinking cursor style */
         .typewriter-cursor {
             display: inline-block;
             background-color: var(--primary-color);
+            box-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color); /* Cursor glow */
             margin-left: 8px; /* Space between text and cursor */
             width: 4px; /* Cursor width */
             height: 1em; /* Match font height */
@@ -79,113 +112,117 @@
             50% { opacity: 0; }
         }
 
-        /* Scroll Down Hint (Optional) */
+        /* Scroll Down Hint - Glow/Pulse */
         .scroll-down {
-            margin-top: 3rem;
-            font-size: 2rem;
+            margin-top: 4rem; /* Increased spacing */
+            font-size: 2.5rem; /* Slightly larger */
             color: var(--primary-color);
-            animation: bounce 2s infinite;
+            animation: pulse-glow 2s infinite ease-in-out;
         }
         .scroll-down a {
-             color: inherit; /* Inherit blue color */
+             color: inherit;
              text-decoration: none;
         }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
+        @keyframes pulse-glow {
+            0%, 100% {
+                transform: scale(1);
+                text-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color);
             }
-            40% {
-                transform: translateY(-15px);
-            }
-            60% {
-                transform: translateY(-7px);
+            50% {
+                transform: scale(1.1);
+                text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
             }
         }
 
+
         /* Downloads Section */
         #downloads {
-            padding: 4rem 2rem; /* More padding */
-            background-color: var(--bg-color); /* Ensure consistent background */
+            padding: 5rem 2rem; /* Increased padding */
+            background-color: var(--bg-color); /* Match body background */
         }
 
         #downloads h2 {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #fff; /* White heading */
+            font-size: 2.8rem; /* Slightly larger heading */
+            margin-bottom: 4rem;
+            color: #fff;
             font-weight: 600;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.3); /* Subtle heading shadow */
         }
 
         .downloads-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
-            gap: 2rem; /* Space between cards */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem; /* Increased gap */
             max-width: 1200px;
-            margin: 0 auto; /* Center the grid */
+            margin: 0 auto;
         }
 
         .download-card {
             background-color: var(--card-color);
-            border-radius: 12px; /* More rounded corners */
-            padding: 2rem;
+            border-radius: 12px;
+            padding: 2.5rem; /* More padding */
             border: 1px solid var(--border-color);
-            box-shadow: 0 4px 15px var(--shadow-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4); /* Deeper shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
             display: flex;
-            flex-direction: column; /* Stack content vertically */
+            flex-direction: column;
         }
 
         .download-card:hover {
-            transform: translateY(-5px); /* Slight lift on hover */
-            box-shadow: 0 8px 25px var(--shadow-color);
+            transform: translateY(-7px); /* Slightly more lift */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6); /* Stronger hover shadow */
+            border-color: var(--primary-color); /* Highlight border on hover */
         }
 
         .download-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
-            color: #fff; /* White title */
+            font-size: 1.6rem; /* Larger title */
+            margin-bottom: 1rem;
+            color: #fff;
             font-weight: 600;
         }
 
         .download-card p {
             font-size: 1rem;
-            margin-bottom: 1.5rem;
-            flex-grow: 1; /* Allow description to push button down */
-            color: var(--text-color); /* Standard text color */
+            margin-bottom: 2rem; /* More space before button */
+            flex-grow: 1;
+            color: var(--text-color);
         }
 
         .download-button {
-            display: inline-block; /* Allows padding and centering */
-            background-color: var(--primary-color);
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary-color), var(--primary-hover)); /* Gradient button */
             color: #fff;
             border: none;
-            padding: 0.8rem 1.8rem;
-            border-radius: 8px; /* Rounded button */
+            padding: 0.9rem 2rem; /* Larger button */
+            border-radius: 8px;
             cursor: pointer;
-            text-decoration: none; /* Remove underline from link */
+            text-decoration: none;
             font-weight: 600;
-            font-size: 1rem;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
             text-align: center;
-            align-self: center; /* Center button horizontally in the card */
+            align-self: center;
+            box-shadow: 0 4px 10px rgba(0, 175, 255, 0.2); /* Button shadow */
         }
 
         .download-button:hover {
-            background-color: var(--primary-hover);
-            transform: scale(1.03); /* Slight scale on hover */
+            background: linear-gradient(45deg, var(--primary-hover), var(--primary-color)); /* Invert gradient */
+            transform: scale(1.05) translateY(-2px); /* Scale and lift */
+            box-shadow: 0 6px 15px rgba(0, 175, 255, 0.3); /* Enhanced shadow */
         }
 
         .download-button i {
-            margin-right: 8px; /* Space between icon and text */
+            margin-right: 10px; /* More space for icon */
         }
 
         /* Footer */
         footer {
             text-align: center;
             padding: 1.5rem;
-            margin-top: auto; /* Push footer to the bottom */
-            background-color: var(--card-color); /* Match card background */
+            margin-top: auto;
+            background-color: #000000; /* Pure black footer */
             color: var(--text-color);
             font-size: 0.9rem;
             border-top: 1px solid var(--border-color);
@@ -197,7 +234,7 @@
 
     <section class="hero">
         <div class="typewriter-container">
-            <span id="typewriter-text" class="typewriter-text"></span><span class="typewriter-cursor"></span>
+            <span id="typewriter-target"></span><span class="typewriter-cursor"></span>
         </div>
         <div class="scroll-down">
             <a href="#downloads" aria-label="Scroll to downloads section">
@@ -248,24 +285,66 @@
     </footer>
 
     <script>
-        // --- Typewriter Effect ---
-        const typewriterElement = document.getElementById('typewriter-text');
-        const textToType = "FRL Cracks";
-        let charIndex = 0;
-        const typingSpeed = 150; // Milliseconds per character
+        const typewriterTarget = document.getElementById('typewriter-target');
+        const textToCycle = "FRL Cracks";
+        const typingSpeed = 120; // Speed of typing
+        const deletingSpeed = 80; // Speed of deleting
+        const pauseBeforeDelete = 2000; // Pause after typing finishes
+        const pauseBeforeTyping = 500; // Pause after deleting finishes
 
-        function type() {
-            if (charIndex < textToType.length) {
-                typewriterElement.textContent += textToType.charAt(charIndex);
+        let currentText = '';
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeWriterCycle() {
+            const fullText = textToCycle;
+            let delay = typingSpeed;
+
+            if (isDeleting) {
+                // Deleting logic
+                currentText = fullText.substring(0, charIndex - 1);
+                charIndex--;
+                delay = deletingSpeed;
+            } else {
+                // Typing logic
+                currentText = fullText.substring(0, charIndex + 1);
                 charIndex++;
-                setTimeout(type, typingSpeed);
+                delay = typingSpeed;
             }
-            // Cursor will keep blinking via CSS animation after typing finishes
+
+             // Apply styling: Blue for "FRL", white for the rest
+            let styledText = '';
+            for (let i = 0; i < currentText.length; i++) {
+                 if (i < 3) { // First 3 characters ("FRL")
+                     if (i === 0) styledText += '<span class="frl-blue">';
+                     styledText += currentText[i];
+                     if (i === 2 || i === currentText.length - 1) styledText += '</span>'; // Close span if FRL is complete or it's the end of current text
+                 } else {
+                      if (i === 3) styledText += '<span class="rest">'; // Start span for the rest
+                      styledText += currentText[i];
+                      if (i === currentText.length - 1) styledText += '</span>'; // Close span at the end
+                 }
+            }
+            typewriterTarget.innerHTML = styledText;
+
+
+            // Check conditions to switch state or pause
+            if (!isDeleting && charIndex === fullText.length) {
+                // Finished typing
+                isDeleting = true;
+                delay = pauseBeforeDelete;
+            } else if (isDeleting && charIndex === 0) {
+                // Finished deleting
+                isDeleting = false;
+                delay = pauseBeforeTyping;
+            }
+
+            setTimeout(typeWriterCycle, delay);
         }
 
-        // Start typing when the page loads
+        // Start the cycle when the page loads
         document.addEventListener('DOMContentLoaded', () => {
-             setTimeout(type, 500); // Start typing after a short delay
+             setTimeout(typeWriterCycle, 500); // Initial delay before starting
              // Set current year in footer
              document.getElementById('year').textContent = new Date().getFullYear();
         });
