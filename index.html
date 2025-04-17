@@ -11,15 +11,15 @@
 
     <style>
         :root {
-            --bg-color: #030308; /* Darker background with slight blue tint */
-            --card-color: #0a0a14; /* Darker card background with slight blue tint */
-            --text-color: #EAEAEA; /* Slightly brighter text */
-            --primary-color: #0077cc; /* Darker blue for primary color */
-            --secondary-color: #FF00C8; /* Magenta accent color */
-            --tertiary-color: #5D3FFF; /* Purple accent color */
-            --primary-hover: #005b9e; /* Darker blue on hover */
-            --border-color: #25254d; /* More visible bluish border */
-            --shadow-color: rgba(0, 119, 204, 0.2); /* Enhanced shadow related to neon */
+            --bg-color: #030308;
+            --card-color: #0a0a14;
+            --text-color: #EAEAEA;
+            --primary-color: #0077cc;
+            --secondary-color: #FF00C8;
+            --tertiary-color: #5D3FFF;
+            --primary-hover: #005b9e;
+            --border-color: #25254d;
+            --shadow-color: rgba(0, 119, 204, 0.2);
             --neon-glow-color: var(--primary-color);
         }
 
@@ -63,7 +63,6 @@
             z-index: -1;
         }
 
-        /* Nav Bar */
         nav {
             position: fixed;
             top: 0;
@@ -134,13 +133,12 @@
             width: 100%;
         }
 
-        /* Hero Section */
         .hero {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100vh; /* Take up full viewport height */
+            min-height: 100vh; 
             text-align: center;
             padding: 2rem;
             position: relative;
@@ -168,20 +166,20 @@
 
         .typewriter-container {
             font-family: 'Montserrat', sans-serif;
-            font-size: clamp(2.5rem, 8vw, 5rem); /* Responsive font size */
+            font-size: clamp(2.5rem, 8vw, 5rem); 
             font-weight: 800;
-            color: #ffffff; /* Base text color: white */
-            position: relative; /* Needed for cursor alignment */
-            min-height: 1.2em; /* Prevent jumping when text is empty */
+            color: #ffffff; 
+            position: relative; 
+            min-height: 1.2em; 
             letter-spacing: -0.02em;
         }
 
         #typewriter-target .frl-blue {
-            color: var(--primary-color); /* Make FRL blue */
+            color: var(--primary-color); 
         }
 
         #typewriter-target .rest {
-            color: #ffffff; /* Ensure rest of text is white */
+            color: #ffffff; 
         }
 
         .hero-subtitle {
@@ -202,18 +200,17 @@
             }
         }
 
-        /* Blinking cursor style */
         .typewriter-cursor {
             display: inline-block;
             background-color: var(--primary-color);
-            box-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color); /* Cursor glow */
-            margin-left: 8px; /* Space between text and cursor */
-            width: 4px; /* Cursor width */
-            height: 1em; /* Match font height */
+            box-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color);
+            margin-left: 8px;
+            width: 4px; 
+            height: 1em; 
             animation: blink 1s infinite;
-            vertical-align: bottom; /* Align with text baseline */
+            vertical-align: bottom; 
             position: relative;
-            top: -0.1em; /* Fine-tune vertical position */
+            top: -0.1em; 
         }
 
         @keyframes blink {
@@ -221,7 +218,6 @@
             50% { opacity: 0; }
         }
 
-        /* Floating particles */
         .particles {
             position: absolute;
             top: 0;
@@ -270,9 +266,9 @@
             }
         }
 
-        /* Scroll Down Hint - Glow/Pulse */
+
         .scroll-down {
-            margin-top: 4rem; /* Increased spacing */
+            margin-top: 4rem;
             color: var(--primary-color);
             animation: pulse-glow 2s infinite ease-in-out;
             opacity: 0;
@@ -306,9 +302,8 @@
             }
         }
 
-        /* Downloads Section */
         #downloads {
-            padding: 8rem 2rem; /* Increased padding */
+            padding: 8rem 2rem; 
             position: relative;
             overflow: hidden;
         }
@@ -363,7 +358,7 @@
         .downloads-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem; /* Increased gap */
+            gap: 2.5rem; 
             max-width: 1200px;
             margin: 0 auto;
             position: relative;
@@ -373,7 +368,7 @@
         .download-card {
             background-color: var(--card-color);
             border-radius: 16px;
-            padding: 2.5rem; /* More padding */
+            padding: 2.5rem; 
             border: 1px solid var(--border-color);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -459,7 +454,7 @@
             margin-right: 10px;
         }
 
-        /* Card icon */
+
         .card-icon {
             position: absolute;
             top: 1.5rem;
@@ -476,7 +471,7 @@
             color: var(--secondary-color);
         }
 
-        /* Footer */
+
         footer {
             text-align: center;
             padding: 2.5rem 1.5rem;
@@ -536,7 +531,7 @@
             color: rgba(234, 234, 234, 0.7);
         }
 
-        /* Media Queries */
+
         @media (max-width: 768px) {
             nav {
                 padding: 1rem;
@@ -570,7 +565,7 @@
             }
         }
 
-        /* Preloader */
+
         .preloader {
             position: fixed;
             top: 0;
@@ -606,7 +601,6 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Back to top button */
         .back-to-top {
             position: fixed;
             bottom: 30px;
@@ -640,12 +634,10 @@
     </style>
 </head>
 <body>
-    <!-- Preloader -->
     <div class="preloader">
         <div class="loader"></div>
     </div>
 
-    <!-- Navigation -->
     <nav>
         <a href="#" class="logo"><span class="frl">FRL</span><span class="cracks">Cracks</span></a>
         <ul class="nav-links">
@@ -727,20 +719,18 @@
         </div>
     </footer>
 
-    <!-- Back to top button -->
     <div class="back-to-top" id="backToTop">
         <i class="fa-solid fa-arrow-up"></i>
     </div>
 
     <script>
-        // Preloader
         window.addEventListener('load', () => {
             setTimeout(() => {
                 document.querySelector('.preloader').classList.add('hidden');
             }, 800);
         });
 
-        // Generate particles
+
         document.addEventListener('DOMContentLoaded', () => {
             const particlesContainer = document.getElementById('particles');
             const particleCount = 30;
@@ -749,17 +739,16 @@
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
                 
-                // Random position
+     
                 const posX = Math.random() * 100;
                 const posY = Math.random() * 100;
                 
-                // Random size
+
                 const size = Math.random() * 3 + 1;
                 
-                // Random animation delay
+ 
                 const delay = Math.random() * 10;
                 
-                // Random animation duration
                 const duration = Math.random() * 10 + 10;
                 
                 particle.style.left = `${posX}%`;
@@ -773,13 +762,12 @@
             }
         });
 
-        // Typewriter effect
         const typewriterTarget = document.getElementById('typewriter-target');
         const textToCycle = "FRL Cracks";
-        const typingSpeed = 120; // Speed of typing
-        const deletingSpeed = 80; // Speed of deleting
-        const pauseBeforeDelete = 2000; // Pause after typing finishes
-        const pauseBeforeTyping = 500; // Pause after deleting finishes
+        const typingSpeed = 120;
+        const deletingSpeed = 80;
+        const pauseBeforeDelete = 2000;
+        const pauseBeforeTyping = 500; 
 
         let currentText = '';
         let charIndex = 0;
@@ -790,39 +778,35 @@
             let delay = typingSpeed;
 
             if (isDeleting) {
-                // Deleting logic
                 currentText = fullText.substring(0, charIndex - 1);
                 charIndex--;
                 delay = deletingSpeed;
             } else {
-                // Typing logic
+
                 currentText = fullText.substring(0, charIndex + 1);
                 charIndex++;
                 delay = typingSpeed;
             }
 
-            // Apply styling: Blue for "FRL", white for the rest
             let styledText = '';
             for (let i = 0; i < currentText.length; i++) {
-                if (i < 3) { // First 3 characters ("FRL")
+                if (i < 3) { 
                     if (i === 0) styledText += '<span class="frl-blue">';
                     styledText += currentText[i];
-                    if (i === 2 || i === currentText.length - 1) styledText += '</span>'; // Close span if FRL is complete or it's the end of current text
+                    if (i === 2 || i === currentText.length - 1) styledText += '</span>';
                 } else {
-                    if (i === 3) styledText += '<span class="rest">'; // Start span for the rest
+                    if (i === 3) styledText += '<span class="rest">'; 
                     styledText += currentText[i];
-                    if (i === currentText.length - 1) styledText += '</span>'; // Close span at the end
+                    if (i === currentText.length - 1) styledText += '</span>'; 
                 }
             }
             typewriterTarget.innerHTML = styledText;
 
-            // Check conditions to switch state or pause
+
             if (!isDeleting && charIndex === fullText.length) {
-                // Finished typing
                 isDeleting = true;
                 delay = pauseBeforeDelete;
             } else if (isDeleting && charIndex === 0) {
-                // Finished deleting
                 isDeleting = false;
                 delay = pauseBeforeTyping;
             }
@@ -830,7 +814,6 @@
             setTimeout(typeWriterCycle, delay);
         }
 
-        // Back to top button functionality
         const backToTopBtn = document.getElementById('backToTop');
         
         window.addEventListener('scroll', () => {
@@ -848,14 +831,11 @@
             });
         });
 
-        // Start the typewriter cycle when the page loads
         document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(typeWriterCycle, 1000); // Initial delay before starting
-            // Set current year in footer
+            setTimeout(typeWriterCycle, 1000);
             document.getElementById('year').textContent = new Date().getFullYear();
         });
 
-        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
